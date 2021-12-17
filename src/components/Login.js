@@ -43,8 +43,8 @@ const Login = () => {
 					<input name='password' id='password' type='password' placeholder='password' onChange={handleChange} />
 					<button id='submit'>login</button>
 				</form>
+				<p id='error'></p>
 			</ModalContainer>
-			<p id='error'></p>
 		</ComponentContainer>
 	);
 };
