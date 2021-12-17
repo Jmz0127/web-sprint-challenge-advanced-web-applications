@@ -1,14 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const Login = () => {
+	const [form, setForm] = useState({
+		username: '',
+		password: '',
+		error: ''
+	});
+
+	const handleChange = (e) => {
+		setForm({
+			...form,
+			[e.target.name]: e.target.value
+		});
+	};
+
+	const handleSubmit = (e) => {
+		//Login post here
+	};
+
 	return (
 		<ComponentContainer>
 			<ModalContainer>
 				<h1>Welcome to Blogger Pro</h1>
 				<h2>Please enter your account information.</h2>
-				<input name='username' id='username' placeholder='username' />
-				<input name='password' id='password' type='password' placeholder='password' />
+				<input name='username' id='username' placeholder='username' onChange={handleChange} />
+				<input name='password' id='password' type='password' placeholder='password' onChange={handleChange} />
 				<button id='submit'>login</button>
 			</ModalContainer>
 			<p id='error'></p>
