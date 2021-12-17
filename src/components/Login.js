@@ -7,7 +7,7 @@ const Login = () => {
 	const [form, setForm] = useState({
 		username: '',
 		password: '',
-		received: ''
+		Received: ''
 	});
 
 	const { push } = useHistory();
@@ -39,8 +39,8 @@ const Login = () => {
 				<form onSubmit={handleSubmit}>
 					<h1>Welcome to Blogger Pro</h1>
 					<h2>Please enter your account information.</h2>
-					<input name='username' id='username' type='text' placeholder='username' onChange={handleChange} />
-					<input name='password' id='password' type='password' placeholder='password' onChange={handleChange} />
+					<input id='username' name='username' placeholder='username' type='text' onChange={handleChange} />
+					<input id='password' name='password' placeholder='password' type='password' onChange={handleChange} />
 					<button id='submit'>login</button>
 				</form>
 				<p id='error' />
