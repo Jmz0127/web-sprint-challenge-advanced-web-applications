@@ -11,6 +11,7 @@ const Login = () => {
 				<input id='password' type='password' placeholder='password' />
 				<button>login</button>
 			</ModalContainer>
+			<p id='error'></p>
 		</ComponentContainer>
 	);
 };
