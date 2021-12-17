@@ -38,11 +38,11 @@ const Login = () => {
 				<form onSubmit={handleSubmit}>
 					<h1>Welcome to Blogger Pro</h1>
 					<h2>Please enter your account information.</h2>
-					<input name='username' id='username' placeholder='username' onChange={handleChange} />
+					<input name='username' id='username' type='text' placeholder='username' onChange={handleChange} />
 					<input name='password' id='password' type='password' placeholder='password' onChange={handleChange} />
 					<button id='submit'>login</button>
 				</form>
-				<p id='error'></p>
+				<p id='error' />
 			</ModalContainer>
 		</ComponentContainer>
 	);
