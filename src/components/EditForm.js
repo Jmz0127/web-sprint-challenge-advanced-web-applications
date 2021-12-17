@@ -14,8 +14,8 @@ const initialArticle = {
 const EditForm = (props) => {
 	const [article, setArticle] = useState(initialArticle);
 	const { handleEdit, handleEditCancel, editId } = props;
+	const [editing, setEditing] = useState(false);
 
-	const { id } = useParams();
 	const { push } = useHistory();
 
 	const handleChange = (e) => {
@@ -26,14 +26,12 @@ const EditForm = (props) => {
 	};
 
 	useEffect(() => {
-		if (editId) {
-			axiosWithAuth()
-				.get(`/articles/${editId}`)
-				.then((res) => {
-					setArticle(res.data);
-				})
-				.catch((err) => console.log(err));
-		}
+		axiosWithAuth()
+			.get(`/articles/${editId}`)
+			.then((res) => {
+				setArticle(res.data);
+			})
+			.catch((err) => console.log(err));
 	}, []);
 
 	const handleSubmit = (e) => {
@@ -44,7 +42,7 @@ const EditForm = (props) => {
 			.put(`/articles/${editId}`, article)
 			.then((res) => {
 				console.log(res);
-				props.setArticle(res.data);
+				setArticle(res.data);
 				push('/view');
 			})
 			.catch((err) => console.log(err));

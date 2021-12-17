@@ -11,7 +11,16 @@ const View = (props) => {
 	const [editing, setEditing] = useState(false);
 	const [editId, setEditId] = useState();
 
-	const handleDelete = (id) => {};
+	const handleDelete = (id) => {
+		axiosWithAuth()
+			.delete(`/articles/${id}`)
+			.then((res) => {
+				setArticles(res.data);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	};
 
 	const handleEdit = (article) => {
 		//drilled down edit button when you want to make an edit to an article
