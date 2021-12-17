@@ -16,12 +16,12 @@ const App = () => {
 			<Header />
 			<RouteContainer>
 				<Switch>
-					<Route path='/login'>
-						<Login />
-					</Route>
 					<PrivateRoute path='/view'>
 						<View />
 					</PrivateRoute>
+					<Route path='/login'>
+						<Login />
+					</Route>
 					<PrivateRoute path='/logout'>
 						<Logout />
 					</PrivateRoute>
