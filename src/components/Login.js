@@ -6,7 +6,8 @@ import { useHistory } from 'react-router-dom';
 const Login = () => {
 	const [form, setForm] = useState({
 		username: '',
-		password: ''
+		password: '',
+		received: ''
 	});
 
 	const { push } = useHistory();
