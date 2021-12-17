@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
+import axiosWithAuth from '../utils/axiosWithAuth';
 import { useHistory } from 'react-router-dom';
 
 const Login = () => {
 	const [form, setForm] = useState({
 		username: '',
 		password: '',
-		error: ''
+		error: false
 	});
 
 	const { push } = useHistory();
@@ -21,15 +21,17 @@ const Login = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		axios
-			.post('http://localhost:5000/api/login', form)
+		axiosWithAuth()
+			.post('/login', form)
 			.then((res) => {
-				console.log(res);
 				localStorage.setItem('token', res.data.token);
 				push('/view');
 			})
 			.catch((err) => {
-				console.log(err.response.data);
+				setForm({
+					...form,
+					error: err.response.data.error
+				});
 			});
 	};
 
@@ -43,7 +45,7 @@ const Login = () => {
 					<input id='password' name='password' placeholder='password' type='password' onChange={handleChange} />
 					<button id='submit'>login</button>
 				</form>
-				<p id='error' />
+				<p id='error'>{form.error}</p>
 			</ModalContainer>
 		</ComponentContainer>
 	);
