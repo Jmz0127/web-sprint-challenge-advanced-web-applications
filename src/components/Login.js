@@ -7,8 +7,8 @@ const Login = () => {
 			<ModalContainer>
 				<h1>Welcome to Blogger Pro</h1>
 				<h2>Please enter your account information.</h2>
-				<input id='username' placeholder='username' />
-				<input id='password' type='password' placeholder='password' />
+				<input name='username' id='username' placeholder='username' />
+				<input name='password' id='password' type='password' placeholder='password' />
 				<button id='submit'>login</button>
 			</ModalContainer>
 			<p id='error'></p>

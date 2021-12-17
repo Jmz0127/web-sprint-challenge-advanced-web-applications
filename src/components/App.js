@@ -13,8 +13,8 @@ const App = () => {
 		<AppContainer>
 			<BloomHeader />
 			<Header />
-			<Switch>
-				<RouteContainer>
+			<RouteContainer>
+				<Switch>
 					<Route path='/login'>
 						<Login />
 					</Route>
@@ -27,8 +27,8 @@ const App = () => {
 					<Route exact path='/'>
 						<Login />
 					</Route>
-				</RouteContainer>
-			</Switch>
+				</Switch>
+			</RouteContainer>
 		</AppContainer>
 	);
 };
