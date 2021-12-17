@@ -29,6 +29,7 @@ const View = (props) => {
 			.get('/articles')
 			.then((res) => {
 				console.log(res);
+				setArticles(res.data);
 			})
 			.catch((err) => {
 				console.log(err);
