@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
 	const [form, setForm] = useState({
@@ -8,6 +9,8 @@ const Login = () => {
 		password: '',
 		error: ''
 	});
+
+	const { push } = useHistory();
 
 	const handleChange = (e) => {
 		setForm({
@@ -23,9 +26,10 @@ const Login = () => {
 			.then((res) => {
 				console.log(res);
 				localStorage.setItem('token', res.data.token);
+				push('/view');
 			})
 			.catch((err) => {
-				console.log(err);
+				console.log(err.response.data);
 			});
 	};
 
