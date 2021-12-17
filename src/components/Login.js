@@ -7,7 +7,7 @@ const Login = () => {
 	const [form, setForm] = useState({
 		username: '',
 		password: '',
-		error: 'false'
+		error: ''
 	});
 
 	const { push } = useHistory();

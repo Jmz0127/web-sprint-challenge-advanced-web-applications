@@ -13,14 +13,18 @@ const View = (props) => {
 
 	const handleDelete = (id) => {};
 
-	const handleEdit = (article) => {};
-
+	const handleEdit = (article) => {
+		//drilled down edit button when you want to make an edit to an article
+		setEditing(article);
+	};
 	const handleEditSelect = (id) => {
+		//initial edit button at list level
 		setEditing(true);
 		setEditId(id);
 	};
 
 	const handleEditCancel = () => {
+		//if you change your mind on making a change
 		setEditing(false);
 	};
 
@@ -28,7 +32,6 @@ const View = (props) => {
 		axiosWithAuth()
 			.get('/articles')
 			.then((res) => {
-				console.log(res);
 				setArticles(res.data);
 			})
 			.catch((err) => {
