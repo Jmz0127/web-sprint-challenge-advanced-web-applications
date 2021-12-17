@@ -9,7 +9,7 @@ const Login = () => {
 				<h2>Please enter your account information.</h2>
 				<input id='username' placeholder='username' />
 				<input id='password' type='password' placeholder='password' />
-				<button>login</button>
+				<button id='submit'>login</button>
 			</ModalContainer>
 			<p id='error'></p>
 		</ComponentContainer>
