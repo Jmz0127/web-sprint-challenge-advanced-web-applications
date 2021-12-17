@@ -17,17 +17,27 @@ const Login = () => {
 	};
 
 	const handleSubmit = (e) => {
-		//Login post here
+		e.preventDefault();
+		axios
+			.post('http://localhost:5000/api/login', form)
+			.then((res) => {
+				console.log(res);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 	};
 
 	return (
 		<ComponentContainer>
 			<ModalContainer>
-				<h1>Welcome to Blogger Pro</h1>
-				<h2>Please enter your account information.</h2>
-				<input name='username' id='username' placeholder='username' onChange={handleChange} />
-				<input name='password' id='password' type='password' placeholder='password' onChange={handleChange} />
-				<button id='submit'>login</button>
+				<form onSubmit={handleSubmit}>
+					<h1>Welcome to Blogger Pro</h1>
+					<h2>Please enter your account information.</h2>
+					<input name='username' id='username' placeholder='username' onChange={handleChange} />
+					<input name='password' id='password' type='password' placeholder='password' onChange={handleChange} />
+					<button id='submit'>login</button>
+				</form>
 			</ModalContainer>
 			<p id='error'></p>
 		</ComponentContainer>
